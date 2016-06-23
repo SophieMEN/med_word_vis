@@ -21,17 +21,12 @@ d3.json("force.json", function(error, json) {
 		links.forEach(function(link,i){
 			cosmat[link.source][link.target] = link.value;
 		});
-		console.log(cosmat);
 		render_bundle(names,cosmat,tags)
 	});
 	function render_bundle(names,cosmat,tags){
 		//1.定义数据
 		var nodecolors =["#FF2D2D","#79FF79","#9393FF"];
 		var linkcolors =["#FFFF6F","#80FFFF","#FF77FF"];
-		//var linkcolors =["#A6A600","#00AEAE","#AE00AE"];
-		// var nodecolors =["#EA0000","#28FF28","#6A6AFF"];
-		// var linkcolors =["#F9F900","#00FFFF","#FF00FF"];
-
 		//2.转换数据，并输出转换后的数据					
 		var chord_layout = d3.layout.chord()
 			                 .padding(0.03)		//节点之间的间隔
