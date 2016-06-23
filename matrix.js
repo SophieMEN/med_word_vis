@@ -1,10 +1,10 @@
 render_matrix();
 		function render_matrix(){
 		    var margin = {
-		        top: 40,
-		        right: 20,
+		        top: 45,
+		        right: 10,
 		        bottom: 10,
-		        left: 40
+		        left: 45
 		      },
 		      width = 300,
 		      height = 300;
@@ -17,8 +17,8 @@ render_matrix();
 		    var svg = d3.select("#matrix").append("svg")
 		      .attr("width", width + margin.left + margin.right)
 		      .attr("height", height + margin.top + margin.bottom)
-		      .style("margin-left", "5px")
-		      .style("margin-top", "5px")
+		      .style("margin-left", "12px")
+		      .style("margin-top", "2px")
 		      .append("g")
 		      .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
 
@@ -65,8 +65,7 @@ render_matrix();
 		    };
 
 		    // The default sort order.
-		    x.domain(orders.group);
-
+		    x.domain(orders.count);
 		    svg.append("rect")
 		      .attr("class", "background")
 		      .attr("width", width)
@@ -191,7 +190,7 @@ render_matrix();
 		    }
 
 		    d3.select("#order").on("change", function() {
-		      //clearTimeout(timeout);
+		      clearTimeout(timeout);
 		      order(this.value);
 		    });
 
@@ -224,9 +223,9 @@ render_matrix();
 		        });
 		    }
 
-		    // var timeout = setTimeout(function() {
-		    //   order("group");
-		    //   d3.select("#order").property("selectedIndex", 2).node().focus();
-		    // }, 5000);
-		    // });
+		    var timeout = setTimeout(function() {
+		      order("group");
+		      d3.select("#order").property("selectedIndex", 0).node().focus();
+		    }, 5000);
+		    });
 		}
