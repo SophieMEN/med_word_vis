@@ -191,7 +191,7 @@ render_matrix();
 		    }
 
 		    d3.select("#order").on("change", function() {
-		      clearTimeout(timeout);
+		      //clearTimeout(timeout);
 		      order(this.value);
 		    });
 
@@ -224,9 +224,9 @@ render_matrix();
 		        });
 		    }
 
-		    var timeout = setTimeout(function() {
-		      order("group");
-		      d3.select("#order").property("selectedIndex", 2).node().focus();
-		    }, 5000);
-		    });
+		    // var timeout = setTimeout(function() {
+		    //   order("group");
+		    //   d3.select("#order").property("selectedIndex", 2).node().focus();
+		    // }, 5000);
+		    // });
 		}
